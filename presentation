@@ -2,6 +2,7 @@
 fn main() {
     println!("Hellow world!"); //println! is used to print text in the console
 }
+
 //basic math
 fn main() {
     let a = 10; //immutable variable
@@ -12,6 +13,35 @@ fn main() {
     println!("{}",a * b); // multiplication
     println!("{}", a / b); // division
 }
+
+//taking user input 
+use std::io;
+
+fn main(){
+    let mut name = String::new(); //creates an empty string
+
+    println!("Enter your name:");
+
+    io::stdin()
+       .read_line(&mut name) //reads input into string
+       .expect("failed to read line");
+
+    println!("Hello {}", name.trim());
+}
+
+
+// basic if/else statement
+fn main(){
+    let age = 18;
+
+    if age >= 18 {
+        println!("You are an adult");
+    } else{
+        prinln!("You are a minor");
+    }
+}
+
+
 //variables
 fn main() {
     let x = 5; // immutable 
@@ -23,14 +53,15 @@ fn main() {
     println!("y = {}", y);
 }
 
+
 //simple function
 fn double(x: i32) -> i32 {//parameter x must be a i32-bit signed integer -> means it will return a 32-bit signed integer
     x*2
 }
 fn main(){
-    let result = double(5);
-    println!("{}", result)
+    println!("{}", double(5));
 }
+
 
 //function with two parameters
 fn aa(a: i32, b: i32) -> i32{
@@ -42,9 +73,24 @@ fn main (){
 //basic for loop 
 fn main(){
     for i in 1..=5 { //loop from 1 to 5
-        println!("i = {}", 1); //print! keeps it in the same line
+        println!("i = {}", i); //print! keeps it in the same line
     }
 }
+
+
+//Vector and push values into the vector 
+fn main(){
+    let mut v = Vec::new();
+
+    v.push(5);
+    v.push(10);
+    v.push(15);
+
+    println!("{?:}", v);
+}
+
+
+
 // loop through a vector 
 fn main(){
     let nums = vec![10, 20, 30]; //creates the vector
@@ -53,6 +99,8 @@ fn main(){
         println!("numbers {}", n);
     }
 }
+
+
 //while loop 1 decreasing
 fn main(){
     let mut count = 10; //mutable variable
@@ -61,6 +109,8 @@ fn main(){
         count -= 1; //decreases count
      }
 }
+
+
 //while loop 2 incrementing
 fn main(){
     let mut count = 1;
@@ -69,6 +119,8 @@ fn main(){
     count += 1;
     }
 }
+
+
 //infinite loop + break
 fn main(){
     let mut x = 0;
@@ -81,6 +133,17 @@ fn main(){
         }
     } 
 }
+
+
+//tuple basics
+fn main(){
+    let person = ("Alejandro", 21);
+
+    println!("Name: {}",person.0)
+    pritnln!("Age: {}", person.1)
+}
+
+
 //reverse string 
 fn main(){
     let x = "Alejandro";
@@ -92,4 +155,13 @@ fn main(){
 
     println!("{}",x);
     println!("{}",reversed);
+}
+
+
+//converting strings to number
+fn main(){
+    let num_str = "42"; //string slice
+    let num: i32 = num_str.parse().unwrap();
+
+    println!("number + 8 = {}", num + 8);
 }
