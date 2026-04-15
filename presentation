@@ -1,0 +1,95 @@
+//print hello world
+fn main() {
+    println!("Hellow world!"); //println! is used to print text in the console
+}
+//basic math
+fn main() {
+    let a = 10; //immutable variable
+    let b = 5;
+    //. {} is needed for it to work. its the placeholder
+    println!("a + b = {}", a + b); //addition
+    println!("{}", a - b); //subtraction
+    println!("{}",a * b); // multiplication
+    println!("{}", a / b); // division
+}
+//variables
+fn main() {
+    let x = 5; // immutable 
+    let mut y = 10; // mutable means that you can update as many times that you want
+    //such as..
+    y = y + 1;
+
+    println!("x = {}", x);
+    println!("y = {}", y);
+}
+
+//simple function
+fn double(x: i32) -> i32 {//parameter x must be a i32-bit signed integer -> means it will return a 32-bit signed integer
+    x*2
+}
+fn main(){
+    let result = double(5);
+    println!("{}", result)
+}
+
+//function with two parameters
+fn aa(a: i32, b: i32) -> i32{
+    a + b
+}
+fn main (){
+    println!("{}", aa(3,4));
+}
+//basic for loop 
+fn main(){
+    for i in 1..=5 { //loop from 1 to 5
+        println!("i = {}", 1); //print! keeps it in the same line
+    }
+}
+// loop through a vector 
+fn main(){
+    let nums = vec![10, 20, 30]; //creates the vector
+
+    for n in nums {
+        println!("numbers {}", n);
+    }
+}
+//while loop 1 decreasing
+fn main(){
+    let mut count = 10; //mutable variable
+     while count > 0 {
+        println!("{}", count);
+        count -= 1; //decreases count
+     }
+}
+//while loop 2 incrementing
+fn main(){
+    let mut count = 1;
+    while count =< 10{
+    println!("{}", count);
+    count += 1;
+    }
+}
+//infinite loop + break
+fn main(){
+    let mut x = 0;
+    loop {  //infinite loop
+        x += 1;
+
+        if x == 5 {
+            println!("reached 5");
+            break; //exit loop
+        }
+    } 
+}
+//reverse string 
+fn main(){
+    let x = "Alejandro";
+
+    //chars() iterates characters
+    //rev() reverse them
+    //collect() turn back into string
+    let reversed: String = x.chars().rev().collect();
+
+    println!("{}",x);
+    println!("{}",reversed);
+}
